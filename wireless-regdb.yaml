@@ -1,19 +1,24 @@
-Name       : wireless-regdb
-Version    : 2009.11.25
-Release    : 1
-Group      : System/Networking
-Summary    : 802.11 wireless networking regulatory database
+Name: wireless-regdb
+Version: 2013.01.11
+Release: 1
+Group: System/Networking
+Summary: 802.11 wireless networking regulatory database
 Description: |
     This package contains the wireless regulatory database used by all
     cfg80211 based Linux wireless drivers.
-URL        : http://wireless.kernel.org/en/developers/Regulatory/
-Sources    :
-    - http://wireless.kernel.org/download/wireless-regdb/wireless-regdb-%{version}.tar.bz2
-BuildArch  : noarch
-Configure  : none
-License    : ISC
-Files      :
+URL: http://wireless.kernel.org/en/developers/Regulatory/
+Sources:
+    - http://www.kernel.org/pub/software/network/wireless-regdb/wireless-regdb-2013.01.11.tar.xz
+BuildArch: noarch
+Configure: none
+License: ISC
+PkgBR:
+    - openssl
+    - python
+    - python-M2Crypto
+Files:
     - "%doc LICENSE"
     - "%doc README"
-    - "%{crda_lib}/*"
-    - "%{_mandir}/man5/regulatory.bin.5.gz"
+    - "%{_libdir}/crda/pubkeys/*.pem"
+    - "%{_libdir}/crda/regulatory.bin"
+    - "%doc %{_mandir}/man5/regulatory.bin.5.gz"
