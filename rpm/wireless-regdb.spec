@@ -32,7 +32,7 @@ rm -rf %{buildroot}
 %defattr(-,root,root,-)
 %doc LICENSE
 %doc README
-%{_libdir}/crda/pubkeys/key.priv.pem
+%{_libdir}/crda/pubkeys/key.pub.pem
 %{_libdir}/crda/pubkeys/linville.key.pub.pem
 %{_libdir}/crda/regulatory.bin
 %doc %{_mandir}/man5/regulatory.bin.5.gz
