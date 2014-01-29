@@ -1,13 +1,12 @@
 Name:       wireless-regdb
 Summary:    802.11 wireless networking regulatory database
-Version:    2013.01.11
+Version:    2013.11.27
 Release:    1
 Group:      System/Networking
 License:    ISC
 BuildArch:  noarch
 URL:        http://wireless.kernel.org/en/developers/Regulatory/
-Source0:    http://www.kernel.org/pub/software/network/wireless-regdb/wireless-regdb-2013.01.11.tar.xz
-Source100:  wireless-regdb.yaml
+Source0:    %{name}-%{version}.tar.bz2
 BuildRequires:  openssl
 BuildRequires:  python
 BuildRequires:  python-M2Crypto
