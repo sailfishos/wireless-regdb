@@ -1,11 +1,11 @@
 Name:       wireless-regdb
 Summary:    802.11 wireless networking regulatory database
-Version:    2013.11.27
+Version:    2016.06.10
 Release:    1
 Group:      System/Networking
 License:    ISC
 BuildArch:  noarch
-URL:        http://wireless.kernel.org/en/developers/Regulatory/
+URL:        https://wireless.wiki.kernel.org/en/developers/regulatory/wireless-regdb
 Source0:    %{name}-%{version}.tar.bz2
 BuildRequires:  openssl
 BuildRequires:  python
@@ -33,7 +33,7 @@ rm -rf %{buildroot}
 %doc LICENSE
 %doc README
 %{_libdir}/crda/pubkeys/key.pub.pem
-%{_libdir}/crda/pubkeys/linville.key.pub.pem
+%{_libdir}/crda/pubkeys/sforshee.key.pub.pem
 %{_libdir}/crda/regulatory.bin
 %doc %{_mandir}/man5/regulatory.bin.5.gz
 
