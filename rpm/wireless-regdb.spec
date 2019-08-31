@@ -1,14 +1,15 @@
 Name:       wireless-regdb
 Summary:    802.11 wireless networking regulatory database
-Version:    2016.06.10
+Version:    2019.06.03
 Release:    1
 Group:      System/Networking
 License:    ISC
 BuildArch:  noarch
 URL:        https://wireless.wiki.kernel.org/en/developers/regulatory/wireless-regdb
 Source0:    %{name}-%{version}.tar.bz2
+Patch0:     0001-use-python3.patch
 BuildRequires:  openssl
-BuildRequires:  python
+BuildRequires:  python3-base
 BuildRequires:  python-M2Crypto
 
 %description
@@ -25,10 +26,11 @@ Man page for %{name}.
 
 %prep
 %setup -q -n %{name}-%{version}/wireless-regdb
+%patch0 -p0
 
 %build
-make %{?_smp_mflags} maintainer-clean
-make %{?_smp_mflags} REGDB_PRIVKEY=key.priv.pem REGDB_PUBKEY=key.pub.pem
+make maintainer-clean
+make REGDB_PRIVKEY=key.priv.pem REGDB_PUBKEY=key.pub.pem
 
 %install
 rm -rf %{buildroot}
@@ -42,8 +44,11 @@ install -Dm0644 README %{buildroot}%{_docdir}/%{name}-%{version}/README
 %{_libdir}/crda/pubkeys/key.pub.pem
 %{_libdir}/crda/pubkeys/sforshee.key.pub.pem
 %{_libdir}/crda/regulatory.bin
+/lib/firmware/regulatory.db
+/lib/firmware/regulatory.db.p7s
 
 %files doc
 %defattr(-,root,root,-)
 %{_mandir}/man5/regulatory.bin.5.gz
+%{_mandir}/man5/regulatory.db.5.gz
 %{_docdir}/%{name}-%{version}

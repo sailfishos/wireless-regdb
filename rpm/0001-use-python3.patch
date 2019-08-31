@@ -1,0 +1,30 @@
+diff --git db2bin.py db2bin.py
+index 29ae313..93b2026 100755
+--- db2bin.py
++++ db2bin.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ from io import BytesIO, open
+ import struct
+diff --git db2fw.py db2fw.py
+index 3affd5a..858fdd6 100755
+--- db2fw.py
++++ db2fw.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ from io import BytesIO, open
+ import struct
+diff --git dbparse.py dbparse.py
+index 5f7e082..e5c50f4 100755
+--- dbparse.py
++++ dbparse.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ from functools import total_ordering
+ import sys, math
