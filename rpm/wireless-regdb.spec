@@ -34,7 +34,7 @@ make REGDB_PRIVKEY=key.priv.pem REGDB_PUBKEY=key.pub.pem
 
 %install
 rm -rf %{buildroot}
-%make_install
+make install DESTDIR=%{buildroot} INSTALL_ROOT=%{buildroot} FIRMWARE_PATH=%{_libdir}/regdb
 
 install -Dm0644 README %{buildroot}%{_docdir}/%{name}-%{version}/README
 
@@ -44,8 +44,9 @@ install -Dm0644 README %{buildroot}%{_docdir}/%{name}-%{version}/README
 %{_libdir}/crda/pubkeys/key.pub.pem
 %{_libdir}/crda/pubkeys/sforshee.key.pub.pem
 %{_libdir}/crda/regulatory.bin
-/lib/firmware/regulatory.db
-/lib/firmware/regulatory.db.p7s
+# These files can be installed to /lib/firmware for the next stop release!
+%{_libdir}/regdb/regulatory.db
+%{_libdir}/regdb/regulatory.db.p7s
 
 %files doc
 %defattr(-,root,root,-)
