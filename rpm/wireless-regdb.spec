@@ -1,6 +1,6 @@
 Name:       wireless-regdb
 Summary:    802.11 wireless networking regulatory database
-Version:    2019.06.03
+Version:    2020.04.29
 Release:    1
 Group:      System/Networking
 License:    ISC
