@@ -2,7 +2,6 @@ Name:       wireless-regdb
 Summary:    802.11 wireless networking regulatory database
 Version:    2020.04.29
 Release:    1
-Group:      System/Networking
 License:    ISC
 BuildArch:  noarch
 URL:        https://wireless.wiki.kernel.org/en/developers/regulatory/wireless-regdb
@@ -18,15 +17,13 @@ cfg80211 based Linux wireless drivers.
 
 %package doc
 Summary:   Documentation for %{name}
-Group:     Documentation
 Requires:  %{name} = %{version}-%{release}
 
 %description doc
 Man page for %{name}.
 
 %prep
-%setup -q -n %{name}-%{version}/wireless-regdb
-%patch0 -p0
+%autosetup -p1 -n %{name}-%{version}/wireless-regdb
 
 %build
 make maintainer-clean
@@ -34,7 +31,7 @@ make REGDB_PRIVKEY=key.priv.pem REGDB_PUBKEY=key.pub.pem
 
 %install
 rm -rf %{buildroot}
-make install DESTDIR=%{buildroot} INSTALL_ROOT=%{buildroot} FIRMWARE_PATH=%{_libdir}/regdb
+make install DESTDIR=%{buildroot} INSTALL_ROOT=%{buildroot} FIRMWARE_PATH=%{_libdir}/regdb CRDA_PATH=%{_libdir}/crda
 
 install -Dm0644 README %{buildroot}%{_docdir}/%{name}-%{version}/README
 
