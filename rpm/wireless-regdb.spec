@@ -1,3 +1,6 @@
+%global     _firmwarepath    /usr/lib/firmware
+%global     _crdapath        /usr/lib/crda
+
 Name:       wireless-regdb
 Summary:    802.11 wireless networking regulatory database
 Version:    2020.04.29
@@ -31,19 +34,18 @@ make REGDB_PRIVKEY=key.priv.pem REGDB_PUBKEY=key.pub.pem
 
 %install
 rm -rf %{buildroot}
-make install DESTDIR=%{buildroot} INSTALL_ROOT=%{buildroot} FIRMWARE_PATH=%{_libdir}/regdb CRDA_PATH=%{_libdir}/crda
+make install DESTDIR=%{buildroot} INSTALL_ROOT=%{buildroot} FIRMWARE_PATH=%{_firmwarepath} CRDA_PATH=%{_crdapath}
 
 install -Dm0644 README %{buildroot}%{_docdir}/%{name}-%{version}/README
 
 %files
 %defattr(-,root,root,-)
 %license LICENSE
-%{_libdir}/crda/pubkeys/key.pub.pem
-%{_libdir}/crda/pubkeys/sforshee.key.pub.pem
-%{_libdir}/crda/regulatory.bin
-# These files can be installed to /lib/firmware for the next stop release!
-%{_libdir}/regdb/regulatory.db
-%{_libdir}/regdb/regulatory.db.p7s
+%{_crdapath}/pubkeys/key.pub.pem
+%{_crdapath}/pubkeys/sforshee.key.pub.pem
+%{_crdapath}/regulatory.bin
+%{_firmwarepath}/regulatory.db
+%{_firmwarepath}/regulatory.db.p7s
 
 %files doc
 %defattr(-,root,root,-)
