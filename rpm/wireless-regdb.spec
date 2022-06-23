@@ -7,7 +7,7 @@ Version:    2020.04.29
 Release:    1
 License:    ISC
 BuildArch:  noarch
-URL:        https://wireless.wiki.kernel.org/en/developers/regulatory/wireless-regdb
+URL:        https://github.com/sailfishos/wireless-regdb
 Source0:    %{name}-%{version}.tar.bz2
 Patch0:     0001-use-python3.patch
 BuildRequires:  openssl
