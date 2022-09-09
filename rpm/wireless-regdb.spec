@@ -27,8 +27,7 @@ Man page for %{name}.
 %build
 
 %install
-rm -rf %{buildroot}
-make install DESTDIR=%{buildroot} INSTALL_ROOT=%{buildroot} FIRMWARE_PATH=%{_firmwarepath} CRDA_PATH=%{_crdapath}
+make install DESTDIR=%{buildroot} FIRMWARE_PATH=%{_firmwarepath} CRDA_PATH=%{_crdapath}
 
 install -Dm0644 README %{buildroot}%{_docdir}/%{name}-%{version}/README
 
