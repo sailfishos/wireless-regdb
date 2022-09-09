@@ -9,10 +9,6 @@ License:    ISC
 BuildArch:  noarch
 URL:        https://github.com/sailfishos/wireless-regdb
 Source0:    %{name}-%{version}.tar.bz2
-Patch0:     0001-use-python3.patch
-BuildRequires:  openssl
-BuildRequires:  python3-base
-BuildRequires:  python-M2Crypto
 
 %description
 This package contains the wireless regulatory database used by all
@@ -26,11 +22,9 @@ Requires:  %{name} = %{version}-%{release}
 Man page for %{name}.
 
 %prep
-%autosetup -p1 -n %{name}-%{version}/wireless-regdb
+%setup -q -n %{name}-%{version}/wireless-regdb
 
 %build
-make maintainer-clean
-make REGDB_PRIVKEY=key.priv.pem REGDB_PUBKEY=key.pub.pem
 
 %install
 rm -rf %{buildroot}
@@ -41,7 +35,6 @@ install -Dm0644 README %{buildroot}%{_docdir}/%{name}-%{version}/README
 %files
 %defattr(-,root,root,-)
 %license LICENSE
-%{_crdapath}/pubkeys/key.pub.pem
 %{_crdapath}/pubkeys/sforshee.key.pub.pem
 %{_crdapath}/regulatory.bin
 %{_firmwarepath}/regulatory.db
