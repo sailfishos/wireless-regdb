@@ -3,7 +3,7 @@
 
 Name:       wireless-regdb
 Summary:    802.11 wireless networking regulatory database
-Version:    2020.04.29
+Version:    2025.02.20
 Release:    1
 License:    ISC
 BuildArch:  noarch
@@ -32,15 +32,13 @@ make install DESTDIR=%{buildroot} FIRMWARE_PATH=%{_firmwarepath} CRDA_PATH=%{_cr
 install -Dm0644 README %{buildroot}%{_docdir}/%{name}-%{version}/README
 
 %files
-%defattr(-,root,root,-)
 %license LICENSE
-%{_crdapath}/pubkeys/sforshee.key.pub.pem
+%{_crdapath}/pubkeys/wens.key.pub.pem
 %{_crdapath}/regulatory.bin
 %{_firmwarepath}/regulatory.db
 %{_firmwarepath}/regulatory.db.p7s
 
 %files doc
-%defattr(-,root,root,-)
 %{_mandir}/man5/regulatory.bin.5.gz
 %{_mandir}/man5/regulatory.db.5.gz
 %{_docdir}/%{name}-%{version}
