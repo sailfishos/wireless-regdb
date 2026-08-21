@@ -3,7 +3,7 @@
 
 Name:       wireless-regdb
 Summary:    802.11 wireless networking regulatory database
-Version:    2025.02.20
+Version:    2026.05.30
 Release:    1
 License:    ISC
 BuildArch:  noarch
@@ -19,7 +19,7 @@ Summary:   Documentation for %{name}
 Requires:  %{name} = %{version}-%{release}
 
 %description doc
-Man page for %{name}.
+Documentation for %{name}.
 
 %prep
 %setup -q -n %{name}-%{version}/wireless-regdb
